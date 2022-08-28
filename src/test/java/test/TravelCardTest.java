@@ -9,6 +9,8 @@ import org.junit.jupiter.api.*;
 import page.DashboardPage;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.*;
+import static data.SQLHelper.getEntryFromPaymentEntityTable;
 
 public class TravelCardTest {
 
@@ -37,6 +39,8 @@ public class TravelCardTest {
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showSuccessNotification();
+        var row = SQLHelper.getEntryFromPaymentEntityTable();
+        assertNotNull(row);
     }
 
     @AfterEach
