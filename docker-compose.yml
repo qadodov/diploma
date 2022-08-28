@@ -17,3 +17,8 @@ services:
       MYSQL_DATABASE: test
       MYSQL_USER: testuser
       MYSQL_PASSWORD: testpassword
+  node-app:
+    build: ./gate-simulator
+    image: marracash
+    ports:
+      - '9999:9999'
