@@ -9,6 +9,7 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class SQLHelper {
 
@@ -19,33 +20,37 @@ public class SQLHelper {
     private static String user = System.getProperty("test_db_user");
     private static String password = System.getProperty("test_db_pass");
 
-    @SneakyThrows
-    public static void setUp() {
+
+    static {
         runner = new QueryRunner();
-        connection = DriverManager.getConnection(url, user, password);
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @SneakyThrows
-    public static EntryHelper.PaymentEntity getEntryFromPaymentEntityTable() {
+    public static PaymentEntity getEntryFromPaymentEntityTable() {
         var query = "SELECT * FROM payment_entity ORDER BY created DESC LIMIT 1;";
-        return runner.query(connection, query, new BeanHandler<>(EntryHelper.PaymentEntity.class));
+        return runner.query(connection, query, new BeanHandler<>(PaymentEntity.class));
     }
 
     @SneakyThrows
-    public static EntryHelper.CreditRequestEntity getEntryFromCreditRequestEntityTable() {
+    public static CreditRequestEntity getEntryFromCreditRequestEntityTable() {
         var query = "SELECT * FROM credit_request_entity ORDER BY created DESC LIMIT 1;";
-        return runner.query(connection, query, new BeanHandler<>(EntryHelper.CreditRequestEntity.class));
+        return runner.query(connection, query, new BeanHandler<>(CreditRequestEntity.class));
     }
 
     @SneakyThrows
-    public static EntryHelper.OrderEntity getEntryFromOrderEntityTable() {
+    public static OrderEntity getEntryFromOrderEntityTable() {
         var query = "SELECT * FROM order_entity ORDER BY created DESC LIMIT 1;";
-        return runner.query(connection, query, new BeanHandler<>(EntryHelper.OrderEntity.class));
+        return runner.query(connection, query, new BeanHandler<>(OrderEntity.class));
     }
 
     @SneakyThrows
     public static void cleanDatabase() {
-        setUp();
         runner.update(connection, "DELETE from payment_entity");
         runner.update(connection, "DELETE from credit_request_entity");
         runner.update(connection, "DELETE from order_entity");
