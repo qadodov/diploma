@@ -3,7 +3,8 @@
 В рамках дипломной работы проведена автоматизация тестирования приложения для покупки тура, взаимодействующего с СУБД и банковскими сервисами.
 
 **План автоматизации** - [Plan.md](https://github.com/qadodov/diploma/blob/main/documentation/Plan.md) \
-**Отчетные документы по результатам тестирования** - [Report.md](https://github.com/qadodov/diploma/blob/main/documentation/Report.md)
+**Отчетные документы по результатам тестирования** - [Report.md](https://github.com/qadodov/diploma/blob/main/documentation/Report.md) \
+**Отчетные документы по итогам автоматизации** - [Summary.md](https://github.com/qadodov/diploma/blob/main/documentation/Summary.md)
 
 ## Инструкция по запуску
 #### Для запуска приложения необходимо установить следующее ПО:
