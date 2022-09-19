@@ -3,6 +3,7 @@ package data;
 import com.github.javafaker.Faker;
 import lombok.Value;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -36,8 +37,7 @@ public class DataHelper {
     }
 
     public static String getValidMonth() {
-        String s = LocalDate.now().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        s = s.substring(3, 5);
+        String s = LocalDate.now().format(DateTimeFormatter.ofPattern("MM"));
         return s;
     }
 
@@ -49,24 +49,9 @@ public class DataHelper {
         return "13";
     }
 
-    public static String getCurrentYear() {
-        int i = LocalDate.now().getYear();
-        String year = String.valueOf(i).substring(2, 4);
-        return year;
-    }
-
-    public static String getPastYear() {
-        int i = LocalDate.now().minusYears(1).getYear();
-        String year = String.valueOf(i).substring(2, 4);
-        return year;
-    }
-
-    public static String getRandomValidYear() {
-        return String.valueOf(faker.number().numberBetween(22, 27));
-    }
-
-    public static String getRandomInvalidYear() {
-        return String.valueOf(faker.number().numberBetween(28, 99));
+    public static String getYear(int i) {
+        String s = LocalDate.now().plusYears(i).format(DateTimeFormatter.ofPattern("yy"));
+        return s;
     }
 
     public static String getHolder() {

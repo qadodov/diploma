@@ -34,7 +34,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showSuccessNotification();
@@ -54,7 +54,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showSuccessNotification();
@@ -75,7 +75,7 @@ public class TravelCardTest {
         var card = DataHelper.getDeclinedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showErrorNotification();
@@ -96,7 +96,7 @@ public class TravelCardTest {
         var card = DataHelper.getDeclinedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showErrorNotification();
@@ -116,7 +116,7 @@ public class TravelCardTest {
         var card = DataHelper.getNonExistentCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showErrorNotification();
@@ -135,7 +135,7 @@ public class TravelCardTest {
         var card = DataHelper.getNonExistentCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showErrorNotification();
@@ -154,7 +154,7 @@ public class TravelCardTest {
         var card = DataHelper.getInvalidCardNumber();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showCardNumberInputError();
@@ -173,7 +173,7 @@ public class TravelCardTest {
         var card = DataHelper.getInvalidCardNumber();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showCardNumberInputError();
@@ -192,7 +192,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getInvalidHolder(),
                 DataHelper.getCVV());
         dashboard.showHolderInputError();
@@ -211,7 +211,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getInvalidHolder(),
                 DataHelper.getCVV());
         dashboard.showHolderInputError();
@@ -230,7 +230,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getInvalidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showMonthInputError();
@@ -249,7 +249,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getNonExistentMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showIncorrectlySpecifiedErrorForMonth();
@@ -268,7 +268,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomInvalidYear(),
+                DataHelper.getYear(20),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showIncorrectlySpecifiedErrorForYear();
@@ -287,7 +287,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getPastYear(),
+                DataHelper.getYear(-1),
                 DataHelper.getHolder(),
                 DataHelper.getCVV());
         dashboard.showExpiredCardError();
@@ -306,7 +306,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.fillFieldsAndSendForm(card.getCardNumber(),
                 DataHelper.getValidMonth(),
-                DataHelper.getRandomValidYear(),
+                DataHelper.getYear(2),
                 DataHelper.getHolder(),
                 DataHelper.getInvalidCVV());
         dashboard.showCVVInputError();
@@ -325,7 +325,7 @@ public class TravelCardTest {
         var card = DataHelper.getApprovedCard();
         dashboard.enterCardNumber(card.getCardNumber());
         dashboard.enterCardMonth(DataHelper.getValidMonth());
-        dashboard.enterCardYear(DataHelper.getRandomValidYear());
+        dashboard.enterCardYear(DataHelper.getYear(2));
         dashboard.enterCardCVV(DataHelper.getCVV());
         dashboard.pressContinue();
         dashboard.showEmptyHolderError();
@@ -343,7 +343,7 @@ public class TravelCardTest {
         var payment = dashboard.openPaymentGate();
         var card = DataHelper.getApprovedCard();
         dashboard.enterCardNumber(card.getCardNumber());
-        dashboard.enterCardYear(DataHelper.getRandomValidYear());
+        dashboard.enterCardYear(DataHelper.getYear(2));
         dashboard.enterCardCVV(DataHelper.getCVV());
         dashboard.enterCardHolder(DataHelper.getHolder());
         dashboard.pressContinue();
@@ -360,7 +360,7 @@ public class TravelCardTest {
     void shouldNotLetBuyIfCardNumberFieldIsBlank() {
         var dashboard = new DashboardPage();
         var payment = dashboard.openPaymentGate();
-        dashboard.enterCardYear(DataHelper.getRandomValidYear());
+        dashboard.enterCardYear(DataHelper.getYear(2));
         dashboard.enterCardCVV(DataHelper.getCVV());
         dashboard.enterCardHolder(DataHelper.getHolder());
         dashboard.enterCardMonth(DataHelper.getValidMonth());
@@ -380,7 +380,7 @@ public class TravelCardTest {
         var payment = dashboard.openPaymentGate();
         var card = DataHelper.getApprovedCard();
         dashboard.enterCardNumber(card.getCardNumber());
-        dashboard.enterCardYear(DataHelper.getRandomValidYear());
+        dashboard.enterCardYear(DataHelper.getYear(2));
         dashboard.enterCardHolder(DataHelper.getHolder());
         dashboard.enterCardMonth(DataHelper.getValidMonth());
         dashboard.pressContinue();
