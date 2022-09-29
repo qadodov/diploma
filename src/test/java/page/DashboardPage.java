@@ -46,43 +46,12 @@ public class DashboardPage {
     private SelenideElement CVVInputError = $x("//span[text()=\"CVC/CVV\"]/parent::span/span[@class=\"input__sub\"]");
     public DashboardPage() {
         heading.should(Condition.visible);
-
-    }
-
-    public class PaymentGate {
-
-        public PaymentGate() {
-            caption.findBy(Condition.exactText("Оплата по карте")).should(Condition.visible);
-            inputCardNumber.should(Condition.visible);
-            inputMonth.should(Condition.visible);
-            inputYear.should(Condition.visible);
-            inputOwner.should(Condition.visible);
-            inputCVV.should(Condition.visible);
-            continueButton.should(Condition.visible);
-        }
-    }
-
-    public class CreditGate {
-
-        public CreditGate() {
-            caption.findBy(Condition.exactText("Кредит по данным карты")).should(Condition.visible);
-            inputCardNumber.should(Condition.visible);
-            inputMonth.should(Condition.visible);
-            inputYear.should(Condition.visible);
-            inputOwner.should(Condition.visible);
-            inputCVV.should(Condition.visible);
-            continueButton.should(Condition.visible);
-        }
-    }
-
-    public PaymentGate openPaymentGate() {
-        paymentButton.click();
-        return new PaymentGate();
-    }
-
-    public CreditGate openCreditGate() {
-        creditButton.click();
-        return new CreditGate();
+        inputCardNumber.should(Condition.visible);
+        inputMonth.should(Condition.visible);
+        inputYear.should(Condition.visible);
+        inputOwner.should(Condition.visible);
+        inputCVV.should(Condition.visible);
+        continueButton.should(Condition.visible);
     }
 
     public void enterCardNumber(String s) {
